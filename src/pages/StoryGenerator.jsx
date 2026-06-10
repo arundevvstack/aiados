@@ -46,11 +46,10 @@ export default function StoryGenerator() {
       if (!workspace?.id || !activeProject || !story?.id) return;
       
       const { error } = await supabase
-        .from('campaign_stories')
+        .from('stories')
         .upsert({
           id: story.id,
           project_id: activeProject,
-          workspace_id: workspace.id,
           concept: brief,
           objective,
           audience,

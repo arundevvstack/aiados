@@ -58,7 +58,7 @@ export const MemoryProvider = ({ children }) => {
           setActiveProject(projectsData[0].id);
 
           // 5. Fetch Story
-          const { data: storiesData } = await supabase.from('campaign_stories').select('*').eq('project_id', projectsData[0].id);
+          const { data: storiesData } = await supabase.from('stories').select('*').eq('project_id', projectsData[0].id);
           if (storiesData && storiesData.length > 0) setStory(storiesData[0]);
 
           // 6. Fetch Assets
